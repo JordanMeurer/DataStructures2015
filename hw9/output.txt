@@ -1,0 +1,26 @@
+Insert numbers for setA and I will stop when you put -1
+0
+1
+2
+3
+Insert numbers for setB and I will stop when you put -1
+0
+1
+2
+3
+Please enter a command: 'U' for Union, 'I' for Intersection, 'D' for difference or 'Q' to quit.
+The A is: { 1, 2, 3, 4,}
+The B is: { 5, 6, 7, 8,}
+The C is: { 1, 2, 3, 4,}
+Please enter a command: 'U' for Union, 'I' for Intersection, 'D' for difference or 'Q' to quit.
+The A is: { 1, 2, 3, 4,}
+The B is: { 5, 6, 7, 8,}
+The C is: { 1, 2, 3, 4, 5, 6, 7, 8,}
+Please enter a command: 'U' for Union, 'I' for Intersection, 'D' for difference or 'Q' to quit.
+The A is: { 1, 2, 3, 4,}
+The B is: { 5, 6, 7, 8,}
+The C is: {}
+Please enter a command: 'U' for Union, 'I' for Intersection, 'D' for difference or 'Q' to quit.
+That was not a choice, please enter a choice again.
+Please enter a command: 'U' for Union, 'I' for Intersection, 'D' for difference or 'Q' to quit.
+Okay closing the program!

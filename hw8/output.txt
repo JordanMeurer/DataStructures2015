@@ -1,0 +1,31 @@
+Welcome to the tree function, here are your options:
+I: insert
+F: find
+D: delete
+O: list in order
+E: list in pre order
+P: list in post order
+L: level order
+A: max
+M: min
+H: height
+C: count
+S: sum
+Q: quit
+******We found 5 in the tree!
+Okay next command
+*3 4 5 7 8 
+*5 4 3 7 8 
+*3 4 8 7 5 
+*5 
+4 7 
+3 8 
+*The max is: 8
+*The minimum is: 3
+*The height is: 3
+*The count is: 5
+*The sum is : 27
+*Program is closing
+
+
+Notes: I was not able to get the delete function to work, I understand what I am doing wrong, just not how to fix the issue.

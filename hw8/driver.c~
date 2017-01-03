@@ -1,0 +1,244 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct nodeT{
+	int x;
+	struct nodeT* left;
+	struct nodeT* right;
+}nodeT;
+
+struct nodeT* newNode();
+void PrintOptions(nodeT *t);
+void Choice(char answer, nodeT *t); 
+void insert(nodeT **t, int i);
+int find(nodeT* t, int i);
+int delete(nodeT* t, int i);
+int list_in_order(nodeT* t);
+int list_pre_order(nodeT* t);
+int list_post_order(nodeT* t);
+int list_level_order(nodeT* t);
+int max(nodeT* t);
+int min(nodeT* t);
+int height(nodeT* t);
+int count(nodeT* t);
+int sum(nodeT* t);
+void quit(nodeT* t);
+
+int main()
+{
+	int h = 1;
+	char answer;
+	nodeT *t = newNode();
+	printf("Welcome to the tree function, here are your options:\n");
+	PrintOptions(t);	/*Create a library function that lists options*/
+	while(h == 1){
+		printf("*");
+		scanf("%c", &answer);
+		Choice(answer, t);	/*if not valid, run print options again*/
+	if(answer == 'q' || answer == 'Q')
+		break;
+	}
+	return 0;
+}
+
+void PrintOptions(nodeT *t)
+{
+	char answer;
+	printf("I: insert\n");
+	printf("F: find\n");
+	printf("D: delete\n");
+	printf("O: list in order\n");
+	printf("E: list in pre order\n");
+	printf("P: list in post order\n");
+	printf("L: level order\n");
+	printf("A: max\n");
+	printf("M: min\n");
+	printf("H: height\n");
+	printf("C: count\n");
+	printf("S: sum\n");
+	printf("Q: quit\n");
+	printf("*");
+	scanf("%c", &answer);
+	Choice(answer,t);	
+}
+
+void Choice(char answer,nodeT *t)
+{
+	if(answer == 'i' || answer == 'I'){
+		int i;
+		printf("Please insert a positive integer to insert\n*");
+		scanf("%d", &i);
+		insert(&t, i);		
+	}
+	else if(answer == 'f' || answer == 'F'){
+		int j;
+		printf("Please enter a positive integer to search for\n*");
+		scanf("%d", &j);
+		find(t, j);
+	}
+	else if(answer == 'd' || answer ==  'D'){
+		int k;
+		printf("Please enter a positive integer to delete\n*");
+		scanf("%d", &k);
+		delete(t, k);
+	}
+	else if(answer == 'o' || answer == 'O')
+		list_in_order(t);
+	else if(answer == 'e' || answer == 'E')
+		list_pre_order(t);
+	else if(answer == 'p' || answer == 'P')
+		list_post_order(t);
+	else if(answer == 'l' || answer == 'L')
+		list_level_order(t);
+        else if(answer == 'a' || answer == 'A')
+		max(t);
+        else if(answer == 'm' || answer == 'M')
+		min(t);
+        else if(answer == 'h' || answer == 'H')
+		height(t);
+        else if(answer == 'c' || answer == 'C')
+		count(t);
+        else if(answer == 's' || answer == 'S')
+		sum(t);
+	else if(answer == 'q' || answer == 'Q'){
+		quit(t);
+		printf("Program is closing\n");
+		exit(0);
+	}
+	else{
+		printf("Invalid option, here is a list of options\n");
+		PrintOptions(t);
+	}
+}
+struct nodeT* newNode()
+{
+	nodeT* t = (nodeT*) malloc(sizeof(nodeT));
+	t->left = NULL;
+	t->right =NULL;
+	return (t);
+}
+/*Finish this later*/
+void insert(nodeT **t, int i)
+{
+	nodeT *temp;
+	temp = *t;
+	if(temp == NULL){
+		nodeT *t = newNode();
+		t->x = i;
+		t = temp;
+	}
+	else{
+		if(i <= temp->x)
+			insert(&temp->left, i);
+		else
+			insert(&temp->right, i);
+	}	
+}
+/*finish this later, recursion? (return left and right and check if they match, then return if tehy do, return 0 if nothing*/
+int find(nodeT *t, int i)
+{
+	if(t == NULL)
+		return 0;
+}
+/*finish this later*/
+int delete(nodeT *t, int i)
+{
+	if(t == NULL)
+		return 0;
+}
+
+int list_in_order(nodeT *t)
+{
+	if(t == NULL)
+		return 0;
+	list_in_order(t->left);
+	printf("%d", t->x);
+	list_in_order(t->right);
+}
+
+int list_pre_order(nodeT *t)
+{
+	if(t == NULL)
+		return 0;
+	printf("%d", t->x);
+	list_pre_order(t->left);
+	list_pre_order(t->right);
+}
+
+int list_post_order(nodeT *t)
+{
+	if(t == NULL)
+		return 0;
+	list_post_order(t->left);
+	list_post_order(t->right);
+	printf("%d", t->x);
+}
+/* come back to this later, you will have to call height*/
+int list_level_order(nodeT *t)
+{
+	if(t == NULL)
+		return 0;
+	if(t->x < 2)
+		return 1;
+		/*finisht this part*/
+
+}
+int max(nodeT *t)
+{
+	if(t == NULL)
+		return 0;
+	int left = max(t->left);
+	int right = max(t->right);
+	
+	return 1; /*finish this part*/
+}
+
+int min(nodeT *t)
+{
+	if(t == NULL)
+		return 0;
+}
+
+int height(nodeT *t)
+{
+	if(t == NULL)
+		return 0;
+	else{
+		int lheight = height(t->left);
+		int rheight = height(t->right);
+	
+		if(lheight > rheight)
+			return(lheight+1);
+		else
+			return(rheight+1);
+	}
+}
+
+/* be sure to change a few things within the function, mainly node*/
+int count(nodeT *t)
+{
+	if(t == NULL)
+		return 0;
+	if(t->left == NULL && t->right == NULL)
+		return 1;
+	else
+		return count(t->left) + count(t->right);
+}
+/* seems right*/
+int sum(nodeT *t)
+{
+	if(t == NULL)
+		return 0;
+	return t->x + sum(t->left) + sum(t->right);
+}
+/*free each part with a order (post order?)*/
+void quit(nodeT *t)
+{
+	if(t == NULL)
+		return;
+	else if(t != 0){
+		quit(t->left);
+		quit(t->right);
+		free(t);
+	}
+}
