@@ -1,0 +1,39 @@
+# Makefile for programs in directory
+#******************************************************
+
+PROGRAMS = hw6
+
+#******************************************************
+# Parameters to control Makefile operations
+#Note that the gccx cammand script must be defined
+
+CC = gcc
+GFLAGS =
+
+#******************************************************
+#Standard entire to remove files from the directories
+#       tidy    --eliminate unwanted files
+#       scratch -- delete derived files in prepaation for rebuild
+
+tidy:
+	rm -f, * .,* *` core a,out graphics.ps
+
+scratch: tidy
+	rm -f *.o *.a $(PROGRAMS)
+
+#******************************************************
+# C compilations
+
+hw6.o: hw6.c set.h
+	gcc -c hw6.c
+setArrayImp.o: setArrayImp.c set.h
+	gcc -c setArrayImp.c
+setLinkedListImp.o: setLinkedListImp.c set.h
+	gcc -c setLinkedListImp.c
+
+#*****************************************************
+#Executable programs
+hw61: hw6.o setArrayImp.o
+	gcc -o hw62 hw6.o setArrayImp.o
+hw62: hw6.o setLinkedList.o
+	gcc -o hw62 hw6.o setLinkedList.o

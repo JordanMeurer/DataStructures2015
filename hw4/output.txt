@@ -1,0 +1,26 @@
+Welcome to Hangman!I will guess a secret word. On each turn, you guessa letter.
+If the letter is in the secret word, I will show you where it appears;
+if not, a part of your body gets strung up on the scaffold.
+Theobject is to guess the word before you are hung.The word now looks like this -----
+You have 8 guesses left
+Guess a letter: That guess is correct.
+The word now looks like this T----
+You have 8 guesses left
+Guess a letter: There are no W's in the word
+The word now looks like this T----
+You have 7 guesses left
+Guess a letter: There are no O's in the word
+The word now looks like this T----
+You have 6 guesses left
+Guess a letter: There are no N's in the word
+The word now looks like this T----
+You have 5 guesses left
+Guess a letter: That guess is correct.
+The word now looks like this T--EE
+You have 5 guesses left
+Guess a letter: That guess is correct.
+The word now looks like this TH-EE
+You have 5 guesses left
+Guess a letter: That guess is correct.
+You guessed the word: THREE
+ You win.

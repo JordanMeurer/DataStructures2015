@@ -1,0 +1,16 @@
+*abc·
+   ^
+*Use the following commands to edit the buffer:
+  I...   Inserts text up to the end of the line
+  F      Moves forward a character
+  B      Moves backward a character
+  J      Jumps to the beginning of the buffer
+  E      Jumps to the end of the buffer
+  D      Deletes the next character
+  H      Generates a help message
+  Q      Quits the program
+abc·
+   ^
+*
+
+I did as much work as I could but I couldn't figure this one out. This project was too hard for me for some reason. There is way too many exceptions and I was running into too many errors. The more I tried to fix the program the more problems I got.

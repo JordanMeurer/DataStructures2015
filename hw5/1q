@@ -1,0 +1,102 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include "library.h"
+#define InitialStackSize 100
+#define InitialBufferSize 120
+#define true 1
+#define false 0
+
+
+
+struct stackCDT{
+	stackElementT *elements;
+	int count;
+	int size;
+};
+
+static void ExpandStack(stackADT stack);
+stackADT NewStack(void)
+{
+	stackADT stack;
+	stack = (stackADT) malloc(sizeof *stack);
+	stack->elements = malloc(InitialStackSize * sizeof(stackElementT));
+	stack->count = 0;
+	stack->size = InitialStackSize;
+	return(stack);
+}
+
+void Push(stackADT stack, stackElementT element)
+{
+	if(stack->count == stack->size) ExpandStack(stack);
+	stack->elements[stack->count++] = element;
+}
+stackElementT Pop(stackADT stack)
+{
+	if (StackIsEmpty(stack)) Error("Pop of an empty stack");
+	return(stack->elements[--stack->count]);
+}
+bool StackIsEmpty(stackADT stack)
+{
+	return (stack->count == 0);
+{
+bool StackIsFull(stackADT stack)
+{
+	return (false);
+}
+void FreeStack(stackADT stack)
+{
+	free(stack->elements);
+	free(stack);
+}
+int StackDepth(stackADT stack)
+{
+	return (stack->count);
+}
+stackElementT GetStackElement(stackADT stack, int index)
+{
+	if(index < 0 || index >= stack->count){
+	Error("Non-existent stack element");
+	}
+return(stack->elements[stack->count - index - 1]);
+}
+ void ExpandStack(stackADT stack)
+{
+	stackElementT *array;
+	int i, newSize;
+
+	newSize = stack->size * 2;
+	array = malloc(newSize * sizeof(stackElementT));
+	for (i = 0; i < stack->count; i++)
+		array[i] = stack->elements[i];
+	free(stack->elements);
+	stack->elements = array;
+	stack->size = newSize;
+}
+char* GetLine(FILE *infile)
+{
+	char* line, nline;
+	int n, ch, size;
+	n = 0;
+	size = InitialBufferSize;
+	line = malloc(size+1);
+	while ((ch = getc(infile)) != '\n' && ch != EOF){
+		if(n == size){
+			size *=2;
+			nline = malloc((size+1) * sizeof(char));
+			strncpy(nline, line, n);
+			free(line);
+			line = nline;
+		}
+		line[n++] = ch;
+	}
+	if (n == 0 && ch == EOF){
+		free(line);
+		return (NULL);
+	}
+	line[n] = '\0';
+	nline = malloc((n+1) * sizeof(char));
+	strcpy(nline, line);
+	free(line);
+	return (nline);
+}

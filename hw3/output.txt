@@ -1,0 +1,9 @@
+How many employees: Name: Title: SSN: Salary: Withholding: Employee #1
+	Name: Jordan Meurer
+	Title: Student
+	SSNum: 12-123-1234
+	Salary: 250.00
+	Withholding exeptions: 2
+Name               Gross     Tax        Net
+--------------------------------------------------
+Jordan Meurer       250.00 - 62.00 = 188.00
